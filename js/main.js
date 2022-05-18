@@ -135,21 +135,64 @@ const vegetableIcons = allIcons.filter(e => e.type === "vegetable");
 const userIcons = allIcons.filter(e => e.type === "user");
 const form = document.getElementById("form");
 const iconBox = document.getElementById("icon-box");
-
 const iconSlot = document.createElement("div");
+const option = document.querySelector("option");
 
-if(form.value === "all") {
-    for (let i = 0; i < allIcons.length; i++) {
-        const iconSlot = document.createElement("div");
-        const iconName = document.createElement("p");
-        iconSlot.classList.add("icon-slot");
-        let iconImg = `<i class="${allIcons[i].prefix}solid ${allIcons[i].prefix}${allIcons[i].name}"></i>`;
-        iconSlot.innerHTML = iconImg;
-        iconName.innerText = allIcons[i].name.toUpperCase();
-        iconSlot.style.color = allIcons[i].color;
-        iconSlot.append(iconName);
-        iconBox.append(iconSlot);
-    };
-} 
+form.onchange = changeFilter;
+
+function changeFilter() {
+	let formValue = this.value;
+	if(formValue === "user") {
+		for (let i = 0; i < userIcons.length; i++) {
+			const iconSlot = document.createElement("div");
+			const iconName = document.createElement("p");
+			iconSlot.classList.add("icon-slot");
+			let iconImg = `<i class="${userIcons[i].prefix}solid ${userIcons[i].prefix}${userIcons[i].name}"></i>`;
+			iconSlot.innerHTML = iconImg;
+			iconName.innerText = userIcons[i].name.toUpperCase();
+			iconSlot.style.color = userIcons[i].color;
+			iconSlot.append(iconName);
+			iconBox.append(iconSlot);
+		};
+	} else if(formValue === "animal") {
+		for (let i = 0; i < animalIcons.length; i++) {
+			const iconSlot = document.createElement("div");
+			const iconName = document.createElement("p");
+			iconSlot.classList.add("icon-slot");
+			let iconImg = `<i class="${animalIcons[i].prefix}solid ${animalIcons[i].prefix}${animalIcons[i].name}"></i>`;
+			iconSlot.innerHTML = iconImg;
+			iconName.innerText = animalIcons[i].name.toUpperCase();
+			iconSlot.style.color = animalIcons[i].color;
+			iconSlot.append(iconName);
+			iconBox.append(iconSlot);
+		};
+	} else if(formValue === "vegetable") {
+		for (let i = 0; i < vegetableIcons.length; i++) {
+			const iconSlot = document.createElement("div");
+			const iconName = document.createElement("p");
+			iconSlot.classList.add("icon-slot");
+			let iconImg = `<i class="${vegetableIcons[i].prefix}solid ${vegetableIcons[i].prefix}${vegetableIcons[i].name}"></i>`;
+			iconSlot.innerHTML = iconImg;
+			iconName.innerText = vegetableIcons[i].name.toUpperCase();
+			iconSlot.style.color = vegetableIcons[i].color;
+			iconSlot.append(iconName);
+			iconBox.append(iconSlot);
+		};
+	} else {
+		for (let i = 0; i < allIcons.length; i++) {
+			const iconSlot = document.createElement("div");
+			const iconName = document.createElement("p");
+			iconSlot.classList.add("icon-slot");
+			let iconImg = `<i class="${allIcons[i].prefix}solid ${allIcons[i].prefix}${allIcons[i].name}"></i>`;
+			iconSlot.innerHTML = iconImg;
+			iconName.innerText = allIcons[i].name.toUpperCase();
+			iconSlot.style.color = allIcons[i].color;
+			iconSlot.append(iconName);
+			iconBox.append(iconSlot);
+		};
+	} 
+}
+
+
 
 console.log(form.value)
