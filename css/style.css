@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+/* 
 .container_custom {
     width: 100%;
 }
@@ -71,4 +71,20 @@ header h1 {
     font-size: 18px;
     font-weight: 500;
     margin: 6px 0 0;
+} */
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.icon {
+    width: calc(100% / 5 - 40px);
+    margin: 20px;
+    border-radius: 14px;
+    box-shadow: 1px 1px 2px grey;
+    font-size: 28px;
 }
